@@ -1,4 +1,4 @@
-package golangecho
+package app
 
 type ConfigDatabase struct {
 	AppName  string `env:"APP_NAME" env-default:"DEFAULT"`

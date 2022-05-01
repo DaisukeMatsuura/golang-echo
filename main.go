@@ -8,7 +8,7 @@ import (
 
 	// "github.com/go-playground/validator"
 	// "github.com/labstack/echo/v4"
-	"github.com/DaisukeMatsuura/golang-echo/golangecho"
+	"github.com/DaisukeMatsuura/golang-echo/app"
 )
 
 // type ProductValidator struct {
@@ -20,7 +20,8 @@ import (
 // }
 
 func main() {
-	golangecho.Start()
+	app.Start()
+
 	// port := os.Getenv("MY_APP_PORT")
 	// if port == "" {
 	// 	port = "8080"

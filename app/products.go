@@ -1,4 +1,4 @@
-package golangecho
+package app
 
 import (
 	// "fmt"
