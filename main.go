@@ -8,7 +8,7 @@ import (
 
 	// "github.com/go-playground/validator"
 	// "github.com/labstack/echo/v4"
-	"github.com/DaisukeMatsuura/golang-echo/app"
+	"golang-echo/app"
 )
 
 // type ProductValidator struct {

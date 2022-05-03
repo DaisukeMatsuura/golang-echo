@@ -2,7 +2,6 @@ package app
 
 import (
 	"fmt"
-	"os"
 
 	"github.com/go-playground/validator"
 	"github.com/ilyakaznacheev/cleanenv"
@@ -22,12 +21,8 @@ func init() {
 
 // Starts the application
 func Start() {
-	port := os.Getenv("MY_APP_PORT")
-	if port == "" {
-		port = "8080"
-	}
 	e.GET("/products", getProducts)
 
-	e.Logger.Print(fmt.Sprintf("Listening on port %s", port))
-	e.Logger.Fatal(e.Start(fmt.Sprintf("localhost:%s", port)))
+	e.Logger.Print(fmt.Sprintf("Listening on port %s", cfg.Port))
+	e.Logger.Fatal(e.Start(fmt.Sprintf("localhost:%s", cfg.Port)))
 }
