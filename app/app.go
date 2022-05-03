@@ -23,6 +23,7 @@ func init() {
 func Start() {
 	e.GET("/products", getProducts)
 	e.GET("/products/:id", getProduct)
+	e.POST("product", createProduct)
 	e.PUT("/products/:id", updateProduct)
 	e.DELETE("/products/:id", deleteProduct)
 
