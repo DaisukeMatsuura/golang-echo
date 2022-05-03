@@ -78,3 +78,30 @@ func updateProduct(c echo.Context) error {
 	product[pID] = reqBody.Name
 	return c.JSON(http.StatusOK, product)
 }
+
+func deleteProduct(c echo.Context) error {
+	var product map[int]string
+	var index int
+	pID, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		return nil
+	}
+	for i, p := range products {
+		for k := range p {
+			if pID == k {
+				product = p
+				index = i
+			}
+		}
+	}
+
+	if product == nil {
+		return c.JSON(http.StatusNotFound, "product not found.")
+	}
+	splice := func(s []map[int]string, index int) []map[int]string {
+		return append(s[:index], s[index+1:]...)
+	}
+	products = splice(products, index)
+
+	return c.JSON(http.StatusOK, product)
+}
