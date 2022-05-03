@@ -23,6 +23,7 @@ func init() {
 func Start() {
 	e.GET("/products", getProducts)
 	e.GET("/products/:id", getProduct)
+	e.PUT("/products/:id", updateProduct)
 
 	e.Logger.Print(fmt.Sprintf("Listening on port %s", cfg.Port))
 	e.Logger.Fatal(e.Start(fmt.Sprintf("localhost:%s", cfg.Port)))
