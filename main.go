@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"time"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -53,7 +54,13 @@ func main() {
 
 	db := client.Database("golangEcho")
 	collection := db.Collection("products")
-	res, err := collection.InsertOne(context.Background(), iphone10)
+	// res, err := collection.InsertOne(context.Background(), iphone10)
+	res, err := collection.InsertOne(context.Background(), bson.D{
+		{"name", "eric"},
+		{"surname", "cartman"},
+		{"hobbies", bson.A{"videogame", "alexa", "kfc"}},
+	})
+
 	if err != nil {
 		fmt.Println(err)
 	}
